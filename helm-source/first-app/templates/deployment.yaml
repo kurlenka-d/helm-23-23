@@ -47,8 +47,9 @@ spec:
               port: http
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
+          volumeMounts:
             - name: "persistent-storage"
-              mouthPath: "/var/www/html"
+              mountPath: "/var/www/html"
       volumes:       
           - name: "persistent-storage"
             persistentVolumeClaim:
